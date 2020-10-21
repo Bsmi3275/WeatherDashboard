@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin = "anonymous" />
+    <link rel="stylesheet" href= style.css>
+    
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <h1>Weather Dashboard</h1>
+            </div>
+        </nav>
+    </div>
+    <div class = "container">
+        <div class = "row">
+            <br />
+            <div class = "col s4">
+                <div id = "search">
+                    <input search = "Search for a city" id="searchInput" type="text" class="validate">
+                    <button id="search-btn" type="button" class="btn btn-primary">
+                        <span><i class="fas fa-search">Search</i></span>
+                      </button>
+                </div>
+                <div id = "history-list">
+                    
+                </div>
+            </div>
+            
+            <div class = "card">
+            <div id = "UV-p">
+                <p>
+
+                </p>
+            </div>
+            </div>
+            <!--Where 5 day forecast is to be posted-->
+            <div class = "col s8">
+                <section>
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>
+
+

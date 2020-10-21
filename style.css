@@ -1,0 +1,14 @@
+.card {
+    background-color: green;
+    display: none;
+}
+
+nav h1 {
+    background-color:white;
+    color:black;
+}
+
+.fas fa-search {
+    font: Arial
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

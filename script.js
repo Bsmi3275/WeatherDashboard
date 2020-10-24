@@ -39,11 +39,13 @@ $("#search-btn").on("click", function (){
         console.log(response.list[0].main.temp);
 
         console.log(response.list[0].wind.speed);
+    
+
 
         for (var i = 0; i < response.list.length; i++) {
             var mynewDiv = $("newDiv") ;
     
-            let newDiv = `<div class=card><b> City: ${response.city.name}</b><h3>Date: ${response.list[i].dt_txt}</h3><h4>Tempurature: ${response.list[i].main.temp}</h4><p>Wind Speed: ${response.list[i].wind.speed}</p><br /></div>`;
+            let newDiv = `<div class=card><b> City: ${response.city.name}</b><h3>Date: ${response.list[i].dt_txt}</h3><h4>Tempurature: ${response.list[i].main.temp}%F </h4><p>Wind Speed: ${response.list[i].wind.speed}</p></div><br />`;
     
            $("main").append(newDiv);
     

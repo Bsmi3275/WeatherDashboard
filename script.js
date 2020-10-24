@@ -1,47 +1,54 @@
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + search + "&APPID=" + APIkey;
+//var iconURL;
+//var lat;
+//var lon;
+//var
 var APIKey = "c653cb658ecf4e0281fa57ef23c5a74d";
-var search = "";
+
 
 
 //Must make search button in html generate results
 $("#search-btn").on("click", function (){
     event.preventDefault();
 
-    localStorage.setItem("search", search)
-    localStorage.getItem("search")
+    var name = $("#city-search").val();
+    console.log(name);
+
+    //localStorage.setItem("search", search)
+    //localStorage.getItem("search")
     
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + name + "&appID=" + APIKey;
+    console.log(queryURL);
+
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response){
-        console.log("Local weather for: "+ city, response);
-        console.log(response.value)
-    
-        var city = response.value[0].name;
-        console.log(name);
+        //console.log("Local weather for: "+ name, response);
+        console.log(response)
+        
+        //convertTemp = Math.round((response.main.temp - 273.15) * 1.8 + 32);
+        //icon = response.weather[0].icon;
+        //lat = response.coord.lat;
+        //lon = response.coord.lon
 
-        var date = response.value[0].date;
-        console.log(date);
 
-        var temp = response.value[0].temp;
-        console.log(temp);
+        console.log(response.city.name);
 
-        var wind = response.value[0].wind;
-        console.log(wind);
+        console.log(response.list[0].dt_txt);
+        
+        console.log(response.list[0].main.temp);
 
-        var UV = response.value[0].UV;
-        console.log(UV);
+        console.log(response.list[0].wind.speed);
 
-        for (var i = 0; i < response.value.length; i++) {
+        for (var i = 0; i < response.list.length; i++) {
             var mynewDiv = $("newDiv") ;
     
-            let newDiv = `<div class=card><span class="card-title"><b>${response.value[i].name}</b></span><h3>${response.value[i].date}</h3><h4>${response.value[i].temp}</h4><p>${response.value[i].wind}</p><p>${response.value[i].UV}</p></div>`;
+            let newDiv = `<div class=card><b> City: ${response.city.name}</b><h3>Date: ${response.list[i].dt_txt}</h3><h4>Tempurature: ${response.list[i].main.temp}</h4><p>Wind Speed: ${response.list[i].wind.speed}</p><br /></div>`;
     
-            $("main").append(newDiv);
+           $("main").append(newDiv);
     
         };
     })
-    
     
 })
 

@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>International Weather Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -14,14 +16,18 @@
                 <div class="input-group mb-3">
                   <input id="city-search" type="text" class="form-control" placeholder="Insert City Here">
                     <div class="input-group-append">
-                      <button id='getWeather' class="btn btn-success" type="submit">
-                        <i id='getWeatherIcon' class="fas fa-search" aria-hidden="true"></i>
+                      <button id="search-btn" class="btn btn-success" type="submit">
+                        <i id='getWeatherIcon' class="fas fa-search" aria-hidden="true">Search</i>
                       </button>
                     </div>
                   </div>
-                <main></main>
+                <main>
+
+                </main>
                 <div id='history'></div>
           </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>

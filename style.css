@@ -1,20 +1,20 @@
 nav h1 {
     text-align: center;
-    color: white;
-    background-color: cornflowerblue;
+    color: #ffffff;
+    background-color: #6495ed;
     padding-top: 5px;
     padding-bottom: 10px;
   }
 
 .card {
     text-align: justify;
-    color: white;
-    background-color: cornflowerblue;
+    color: #ffffff;
+    background-color: #6495ed;
     padding-top: 5px;
     padding-bottom: 10px;
 }
 
 #search-btn {
-    color: white;
-    background-color: cornflowerblue;
+    color: #ffffff;
+    background-color: #6495ed;
 }

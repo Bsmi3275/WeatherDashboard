@@ -1,14 +1,20 @@
-.card {
-    background-color: green;
-    display: none;
-}
-
 nav h1 {
-    background-color:white;
-    color:black;
+    text-align: center;
+    color: white;
+    background-color: cornflowerblue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+
+.card {
+    text-align: justify;
+    color: white;
+    background-color: cornflowerblue;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
-.fas fa-search {
-    font: Arial
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#search-btn {
+    color: white;
+    background-color: cornflowerblue;
 }

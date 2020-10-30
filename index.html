@@ -13,33 +13,23 @@
     <h1>Weather Dashboard</h1>
   </nav>
     <div class='container'>
-        <div class='row'>
-          <div class='col s4'>
-                <label>Search For a City:</label>
-                <div class="input-field">
-                  <input id="city-search" type="text" class="form-control" placeholder="Insert City Here">
-                    <div class="input-group-append">
+      <div class='row'>
+        <div class='col s4'>
+          <label>Search For a City:</label>
+          <div class="input-field">
+              <input id="city-search" type="text" class="form-control" placeholder="Insert City Here">
+              <div class="input-group-append">
                       <button id="search-btn" class="btn btn-success" type="submit">
                         <i id='getWeatherIcon' class="fas fa-search" aria-hidden="true">Search</i>
                       </button>
-                    </div>
-                  </div>
-                <div class="col s3">
-                  <!--Today's weather-->
-                  <!--<h3>Today's Weather</h3>-->
-                    <div>
-                      <main></main>
-                      <!--<p class= "city"></b>
-                      <p id= "date"></b>
-                      <p id= "temp"></p>
-                      <p id= "ws"></p>-->
-                    </div>
-                </div>
-                <div class="col s3">
-                  <!--<h4 class="forecast-text"></h4><b>Five-Day Forecast:</b></div>-->
-                  <h4></h4>
-                </div> 
-                <!--<div>
+              </div>
+          </div>
+          <div class="col s3">
+                  <!--Five-Day Forecast:-->
+                  <!--<h3>Five-Day Forecast:r</h3>-->
+                      <section class="forecast-text">
+                      </section>
+                  <!--<div>
                   <p class= "city"></b>
                   <p id= "date001"></b>
                   <p id= "temp001"></p>
@@ -69,12 +59,25 @@
                   <p id= "temp005"></p>
                   <p id= "ws005"></p>
                 </div>-->
-              </div>
-              
-            </div>
           </div>
+                      
         </div>
+        <div class="col s3">
+                  <!--<h4 class="weather-text"></h4><b>Today's Weather:</b></div>-->
+                  <main class="weather-text">
+                  </main>
+        </div> 
+                <!--<p class= "city"></b>
+                      <p id= "date"></b>
+                      <p id= "temp"></p>
+                      <p id= "ws"></p>-->
+        
+        
+      </div>
+              
+    </div>
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="moment.js"></script>
 </body>

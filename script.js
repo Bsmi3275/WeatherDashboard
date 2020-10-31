@@ -62,13 +62,13 @@ $("#search-btn").on("click", function (){
     var lon = $("#lon").val();
     console.log(lon);
     
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + name + "&appID=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + name + "&appID=" + APIKey;
     console.log(queryURL);
 
-    var URLquery = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&appID=" + APIKey;
+    var URLquery = "https://api.openweathermap.org/data/2.5/weather?q=" + name + "&appID=" + APIKey;
     console.log(URLquery);
 
-    var queryUV = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+    var queryUV = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
     console.log(queryUV);
 
     $.ajax({

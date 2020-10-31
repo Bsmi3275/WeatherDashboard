@@ -1,4 +1,52 @@
 var APIKey = "c653cb658ecf4e0281fa57ef23c5a74d";
+// var KeyAPI = "f4b2e3a444bdb90a49467a07d51c15ea";
+
+// function getUVIndex() {
+//     var lat = $('#lat').val();
+//     var lng = $('#lng').val();
+//     var alt = $('#alt').val();
+//     var ozone = $('#ozone').val();
+//     var dt = $('#dt').val();
+   
+//     $.ajax({
+//       type: 'GET',
+//       dataType: 'json',
+//       beforeSend: function(request) {
+//         request.setRequestHeader('x-access-token', 'f4b2e3a444bdb90a49467a07d51c15ea');
+//       },
+//       url: 'https://api.openuv.io/api/v1/uv?lat=' + lat + '&lng=' + lng + '&alt=' + alt + '&ozone=' + ozone + '&dt=' + dt,
+//       success: function(response) {
+//         //handle successful response
+//       },
+//       error: function(response) {
+//         // handle error response
+//       }
+//     })then(function(response){
+//         console.log(response, "response");
+
+//         let lat = uvLat
+//         let lng = uvLong
+
+//         var uv = "";
+        
+
+//         if (uv <= 3)
+//         console.log("temperate");
+//         $("#uv").css("background.color", "green");
+
+//         if (uv >= 4 || uv <= 8)
+//         console.log("moderate");
+//         $("#uv").css("background.color", "yellow");
+
+//         if (uv >= 9)
+//         console.log("severe");
+//         $("#uv").css("background.color", :"red");
+
+
+//         console.log(uv)
+//     }
+//     ;
+//    }
 
 
 //Must make search button in html generate results
@@ -7,9 +55,21 @@ $("#search-btn").on("click", function (){
 
     var name = $("#city-search").val();
     console.log(name);
+
+    var lat = $("#lat").val();
+    console.log(lat);
+
+    var lon = $("#lon").val();
+    console.log(lon);
     
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + name + "&appID=" + APIKey;
     console.log(queryURL);
+
+    var URLquery = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&appID=" + APIKey;
+    console.log(URLquery);
+
+    var queryUV = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+    console.log(queryUV);
 
     $.ajax({
         url: queryURL,
@@ -19,166 +79,125 @@ $("#search-btn").on("click", function (){
         
         console.log(response.city.name);
 
-        console.log(response.list[0].dt_txt);
+        console.log(response.list[6].dt_txt);
+        console.log(response.list[14].dt_txt);
+        console.log(response.list[22].dt_txt);
+        console.log(response.list[30].dt_txt);
+        console.log(response.list[38].dt_txt);
 
-        console.log(response.list[0].wind.speed); 
+
+        console.log(response.list[6].main.humidity);
+        console.log(response.list[14].main.humidity);
+        console.log(response.list[23].main.humidity);
+        console.log(response.list[30].main.humidity);
+        console.log(response.list[38].main.humidity);
+
 
         //Convert Tempuratures from Kelvin to Fahrenheit
         //convertTemp = Math.round((response.main.temp - 273.15) * 1.8 + 32);
-        var convertTemp = Math.round((response.list[0].main.temp - 273.15) * 1.8 + 32)
-            console.log(convertTemp);
-        var convertTemp1 = Math.round((response.list[7].main.temp - 273.15) * 1.8 + 32)
+        var convertTemp1 = Math.round((response.list[6].main.temp - 273.15) * 1.8 + 32)
             console.log(convertTemp1);
-        var convertTemp2 = Math.round((response.list[15].main.temp - 273.15) * 1.8 + 32)
+        var convertTemp2 = Math.round((response.list[14].main.temp - 273.15) * 1.8 + 32)
             console.log(convertTemp2);
-        var convertTemp3 = Math.round((response.list[23].main.temp - 273.15) * 1.8 + 32)
+        var convertTemp3 = Math.round((response.list[22].main.temp - 273.15) * 1.8 + 32)
             console.log(convertTemp3);
-        var convertTemp4 = Math.round((response.list[31].main.temp - 273.15) * 1.8 + 32)
+        var convertTemp4 = Math.round((response.list[30].main.temp - 273.15) * 1.8 + 32)
             console.log(convertTemp4);
-        var convertTemp5 = Math.round((response.list[39].main.temp - 273.15) * 1.8 + 32)
+        var convertTemp5 = Math.round((response.list[38].main.temp - 273.15) * 1.8 + 32)
             console.log(convertTemp5);
 
 
+            console.log(response.list.length, "length")
 
-        for (var i = 0; i < response.list.length; i++) {
+        //for (var i = 0; i < 2; i++) {
                 var mynewDiv = $("newDiv") ;
-                let newDiv = `<h3>Today's Weather</h3>
+                let newDiv = `
+                            <h3>5-Day 3-Hour Forecast:</h3>
                             <div class=card>
                             <b> City: ${response.city.name}</b>
-                            <h3>Date: ${response.list[0].dt_txt}</h3>
-                            <h4>Tempurature: ${convertTemp}%F </h4>
-                            <p>Wind Speed: ${response.list[0].wind.speed}</p></div>
+                            <p>Date: ${response.list[6].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <h6>Tempurature: ${convertTemp1}*F </h6>
+                            <p>Humidity: ${response.list[6].main.humidity}%</p>
+                            </div>
                             <br />
-                            <h3>5-Day 3-Hour Forecast</h3>
                             <div class=card>
                             <b> City: ${response.city.name}</b>
-                            <h3>Date: ${response.list[7].dt_txt}</h3>
-                            <h4>Tempurature: ${convertTemp1}%F </h4>
-                            <p>Wind Speed: ${response.list[7].wind.speed}</p></div>
+                            <p>Date: ${response.list[14].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <h6>Tempurature: ${convertTemp2}*F </h6>
+                            <p>Humidity: ${response.list[14].main.humidity}%</p>
+                            </div>
+                            <br />
                             <div class=card>
                             <b> City: ${response.city.name}</b>
-                            <h3>Date: ${response.list[15].dt_txt}</h3>
-                            <h4>Tempurature: ${convertTemp2}%F </h4>
-                            <p>Wind Speed: ${response.list[15].wind.speed}</p></div>
+                            <p>Date: ${response.list[22].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <h6>Tempurature: ${convertTemp3}*F </h6>
+                            <p>Humidity: ${response.list[22].main.humidity}%</p>
+                            </div>
+                            <br />
                             <div class=card>
                             <b> City: ${response.city.name}</b>
-                            <h3>Date: ${response.list[23].dt_txt}</h3>
-                            <h4>Tempurature: ${convertTemp3}%F </h4>
-                            <p>Wind Speed: ${response.list[23].wind.speed}</p></div>
+                            <p>Date: ${response.list[30].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <h6>Tempurature: ${convertTemp4}*F </h6>
+                            <p>Humidity: ${response.list[30].main.humidity}%</p>
+                            </div>
+                            <br />
                             <div class=card>
                             <b> City: ${response.city.name}</b>
-                            <h3>Date: ${response.list[31].dt_txt}</h3>
-                            <h4>Tempurature: ${convertTemp4}%F </h4>
-                            <p>Wind Speed: ${response.list[31].wind.speed}</p></div>
-                            <div class=card>
-                            <b> City: ${response.city.name}</b>
-                            <h3>Date: ${response.list[39].dt_txt}</h3>
-                            <h4>Tempurature: ${convertTemp5}%F </h4>
-                            <p>Wind Speed: ${response.list[39].wind.speed}</p></div>
+                            <p>Date: ${response.list[38].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <h6>Tempurature: ${convertTemp5}*F </h6>
+                            <p>Humidity: ${response.list[38].main.humidity}%</p>
+                            </div>
                             <br />`
                             ;
-               $("main").append(newDiv);
-        }
-        
-
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var city = $("city") ;
-        //         let city = `<City: ${response.city.name}`;
-        //         $("city").append(city);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var date = $("date") ;
-        //         let date = `Date: ${response.list[0].dt_txt}`;
-        //         $("date").append(date);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var date001 = $("date001") ;
-        //         let date001 = `Date: ${response.list[3].dt_txt}`;
-        //         $("date001").append(date001);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var date002 = $("date002") ;
-        //         let date002 = `Date: ${response.list[11].dt_txt}`;
-        //         $("date002").append(date002);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var date003 = $("date003") ;
-        //         let date003 = `Date: ${response.list[19].dt_txt}`;
-        //         $("date003").append(date003);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var date004 = $("date004") ;
-        //         let date004 = `Date: ${response.list[27].dt_txt}`;
-        //         $("date004").append(date004);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var date005 = $("date005") ;
-        //         let date005 = `Date: ${response.list[35].dt_txt}`;
-        //         $("date005").append(date005);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var temp = $("temp") ;
-        //         let temp = `Tempurature: ${convertTemp} % F`;
-        //         $("temp").append(temp);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var temp001 = $("temp001") ;
-        //         let temp001 = `Tempurature: ${convertTemp1} % F`;
-        //         $("temp001").append(temp001);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var temp002 = $("temp002") ;
-        //         let temp002 = `Tempurature: ${convertTemp2} % F`;
-        //         $("temp002").append(temp002);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var temp003 = $("temp003") ;
-        //         let temp003 = `Tempurature: ${convertTemp3} % F`;
-        //         $("temp003").append(temp003);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {            
-        //     var temp004 = $("temp004") ;
-        //         let temp004 = `Tempurature: ${convertTemp4} % F`;
-        //         $("temp004").append(temp004);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var temp005 = $("temp005") ;
-        //         let temp005 = `Tempurature: ${convertTemp5} % F`;
-        //         $("temp005").append(temp005);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var ws = $("ws");
-        //         let ws = `Wind Speed: ${response.list[0].wind.speed}`;
-        //         $("ws").append(ws);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var ws001 = $("ws001");
-        //         let ws001 = `Wind Speed: ${response.list[3].wind.speed}`;
-        //         $("ws001").append(ws001);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var ws002 = $("ws002");
-        //         let ws002 = `Wind Speed: ${response.list[11].wind.speed}`;
-        //         $("ws002").append(temp002);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var ws003 = $("ws003");
-        //         let ws003 = `Wind Speed: ${response.list[19].wind.speed}`;
-        //         $("ws003").append(temp003);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var ws004 = $("ws004");
-        //         let ws004 = `Wind Speed: ${response.list[27].wind.speed}`;
-        //         $("ws004").append(temp004);
-        // }
-        // for (var i = 0; i < response.list.length; i++) {
-        //     var ws005 = $("ws005");
-        //         let ws005 = `Wind Speed: ${response.list[35].wind.speed}`;
-        //         $("ws005").append(temp005);
-            
-        // }
+               $("main").prepend(newDiv);
     })
-    
-})
 
+    $.ajax({
+            url: URLquery,
+            method: "GET"
+         }).then(function(response){
+            console.log(response, "response")
+            
+            console.log(response.name);
+
+            console.log(response.dt_txt);
+
+            console.log(response.wind.speed); 
+
+            console.log(response.main.humidity);
+
+            var date = new Date()
+            console.log(date);
+
+            var convertTemp = Math.round((response.main.temp - 273.15) * 1.8 + 32)
+            console.log(convertTemp);
+            
+                var mynewDiv001 = $("newDiv001") ;
+                let newDiv001= `<h3>Today's Weather:</h3>
+                             <div class=card>
+                             <b> City: ${response.name}</b> 
+                             <p>Date: ${date}</p>                    
+                             <h6>Tempurature: ${convertTemp}*F </h6>
+                             <p>Wind Speed: ${response.wind.speed} mph</p>
+                             <p>Humidity: ${response.main.humidity}% </p>
+                             </div>
+                             <br/>`;
+                 $("section").prepend(newDiv001);
+         })   
+
+    $.ajax({
+        url: queryUV,
+        method: "GET"
+    }).then(function(response){
+        console.log(response, "response")
+
+        console.log(response.UVindexNumber);
+
+        var mynewP = $("newP") ;
+        let newP = `<p> UV: ${response.UVindexNumber} </p>`;
+        $("#UV").prepend(newP);
+
+    })
+
+})
 

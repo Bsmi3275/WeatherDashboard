@@ -1,7 +1,7 @@
 nav h1 {
     text-align: center;
     color: #ffffff;
-    background-color: #6495ed;
+    background-color: #000000;
     padding-top: 5px;
     padding-bottom: 10px;
   }
@@ -16,5 +16,14 @@ nav h1 {
 
 #search-btn {
     color: #ffffff;
-    background-color: #6495ed;
+    background-color: #008000;
+}
+
+#card001 {
+    color: #000000;
+}
+
+.text {
+    color: #000000;
+    background-color: #ffff00;
 }

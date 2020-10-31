@@ -15,9 +15,14 @@
     <div class='container'>
       <div class='row'>
         <div class='col s4'>
+          <div class = "text">
+            <p>Note: This search renders each result for a city in Eastern Time. Local times for international locations may not be available and the given time might not represent the actual time of day in that global location.</p>
+            <p>Please make a note of the UV index results. If it is in orange, no skin or heat protection will be needed. If it is pink, please exercise caution if you choose to visit. </p>
+            <p>This Weather Dashboard does not take into account the state or country that the city is in, and some city choices may not be available.</p>
+          </div>
           <label>Search For a City:</label>
           <div class="input-field">
-              <input id="city-search" type="text" class="form-control" placeholder="Insert City Here">
+              <input id="city-search" type="text" class="form-control" placeholder="Please enter a city name only">
               <div class="input-group-append">
                       <button id="search-btn" class="btn btn-success" type="submit">
                         <i id='getWeatherIcon' class="fas fa-search" aria-hidden="true">Search</i>
@@ -66,8 +71,7 @@
                   <!--<h4 class="weather-text"></h4><b>Today's Weather:</b></div>-->
                   <main class="weather-text">
                   </main>
-                  <p id= "UV">
-                  </p>
+                  
         </div> 
                 <!--<p class= "city"></b>
                       <p id= "date"></b>

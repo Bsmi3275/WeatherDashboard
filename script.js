@@ -37,15 +37,37 @@ $("#search-btn").on("click", function (){
         //retrieving humidities
         console.log(response.list[6].main.humidity);
         console.log(response.list[14].main.humidity);
-        console.log(response.list[23].main.humidity);
+        console.log(response.list[22].main.humidity);
         console.log(response.list[30].main.humidity);
         console.log(response.list[38].main.humidity);
+
+        //add weather icon for forecast
+        console.log(response.list[6].weather[0].icon);
+        fiveDayIconURL001 =
+          "https://openweathermap.org/img/wn/" + response.list[6].weather[0].icon + "@2x.png";
+          console.log(fiveDayIconURL001);
+        console.log(response.list[14].weather[0].icon);
+        fiveDayIconURL002 =
+          "https://openweathermap.org/img/wn/" + response.list[14].weather[0].icon + "@2x.png";
+           console.log(fiveDayIconURL002);
+        console.log(response.list[22].weather[0].icon);
+        fiveDayIconURL003 =
+          "https://openweathermap.org/img/wn/" + response.list[22].weather[0].icon + "@2x.png";
+           console.log(fiveDayIconURL003);
+        console.log(response.list[30].weather[0].icon);
+        fiveDayIconURL004 =
+          "https://openweathermap.org/img/wn/" + response.list[30].weather[0].icon + "@2x.png";
+          console.log(fiveDayIconURL004);
+        console.log(response.list[30].weather[0].icon);
+        fiveDayIconURL005 =
+          "https://openweathermap.org/img/wn/" + response.list[38].weather[0].icon + "@2x.png";
+           console.log(fiveDayIconURL005);
 
         //Temperatures in Kelvin
         //assigned a day and time out of 40 (-/40)
         console.log(response.list[6].main.temperature);
         console.log(response.list[14].main.temperature);
-        console.log(response.list[23].main.temperature);
+        console.log(response.list[22].main.temperature);
         console.log(response.list[30].main.temperature);
         console.log(response.list[38].main.temperature);
 
@@ -85,6 +107,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[6].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL001}></span>                   
                             <h6>Tempurature: ${convertTemp1}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp001}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[6].main.temp} Kelvin </h6>
@@ -95,6 +118,7 @@ $("#search-btn").on("click", function (){
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[14].dt_txt} GMT-400 (Eastern Daylight Time)</p>
                             <h6>Tempurature: ${convertTemp2}*F (degrees Fahrenheit) </h6>
+                            <span class=image> <img src=${fiveDayIconURL002}></span>                   
                             <h6>             ${convertTemp002}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[14].main.temp} Kelvin </h6>
                             <p>Humidity: ${response.list[14].main.humidity}%</p>
@@ -103,6 +127,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[22].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL003}></span>                   
                             <h6>Tempurature: ${convertTemp3}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp003}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[22].main.temp} Kelvin </h6>
@@ -112,6 +137,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[30].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL004}></span>                   
                             <h6>Tempurature: ${convertTemp4}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp004}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[30].main.temp} Kelvin </h6>
@@ -121,6 +147,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[38].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL005}></span>                   
                             <h6>Tempurature: ${convertTemp5}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp005}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[38].main.temp} Kelvin </h6>
@@ -139,6 +166,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[6].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL001}></span>                   
                             <h6>Tempurature: ${convertTemp1}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp001}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[6].main.temp} Kelvin </h6>
@@ -148,6 +176,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[14].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL002}></span>                   
                             <h6>Tempurature: ${convertTemp2}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp002}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[14].main.temp} Kelvin </h6>
@@ -157,6 +186,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[22].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL003}></span>                   
                             <h6>Tempurature: ${convertTemp3}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp003}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[22].main.temp} Kelvin </h6>
@@ -166,6 +196,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[30].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL004}></span>                   
                             <h6>Tempurature: ${convertTemp4}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp004}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[30].main.temp} Kelvin </h6>
@@ -175,6 +206,7 @@ $("#search-btn").on("click", function (){
                             <div class=card>
                             <b> City: ${response.city.name}</b>
                             <p>Date: ${response.list[38].dt_txt} GMT-400 (Eastern Daylight Time)</p>
+                            <span class=image> <img src=${fiveDayIconURL005}></span>                   
                             <h6>Tempurature: ${convertTemp5}*F (degrees Fahrenheit) </h6>
                             <h6>             ${convertTemp005}*C (degrees Celsius) </h6>
                             <h6>             ${response.list[38].main.temp} Kelvin </h6>
@@ -243,6 +275,12 @@ $("#search-btn").on("click", function (){
 
             console.log(response.main.humidity);
 
+            //add weather icon
+            console.log(response.weather[0].icon);
+            var weathericonURL = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
+            console.log(weathericonURL);
+
+
             //consoled date in *similar form. "dt_txt" could not be retrieved from current weather console.
             var date = new Date()
             console.log(date);
@@ -260,7 +298,8 @@ $("#search-btn").on("click", function (){
                 let newDiv001= `<h3>Today's Weather:</h3>
                              <div class=card>
                              <b> City: ${response.name}</b> 
-                             <p>Date: ${date}</p>                    
+                             <p>Date: ${date}</p> 
+                             <span class=image> <img src=${weathericonURL}></span>                   
                              <h6>Tempurature: ${convertTemp}*F (degrees Fahrenheit) </h6>
                              <h6>             ${convertTemp000}*C (degrees Celsius) </h6>
                              <h6>             ${response.main.temp} Kelvin </h6>
@@ -286,7 +325,8 @@ $("#search-btn").on("click", function (){
                     let newDiv001= `<h3>Today's Weather:</h3>
                                  <div class=card>
                                  <b> City: ${response.name}</b> 
-                                 <p>Date: ${date}</p>                    
+                                 <p>Date: ${date}</p>                 
+                                 <span class=image> <img src=${weathericonURL}></span>                   
                                  <h6>Tempurature: ${convertTemp}*F (degrees Fahrenheit) </h6>
                                  <h6>             ${convertTemp000}*C (degrees Celsius) </h6>
                                  <h6>             ${response.main.temp} Kelvin </h6>

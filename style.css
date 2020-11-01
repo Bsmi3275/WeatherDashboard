@@ -19,9 +19,11 @@ nav h1 {
     background-color: #008000;
 }
 
-#card001 {
-    color: #000000;
+#new-btn {
+    color:#008000;
+    background-color:#ffffff;
 }
+
 
 .text {
     color: #000000;
